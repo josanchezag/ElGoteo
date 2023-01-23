@@ -1,13 +1,16 @@
 package com.elgotero.elgotero.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import java.util.Date;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -19,13 +22,19 @@ public class Client {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column (name = "DS_NAME", nullable = false)
+    @Column(name = "Kid", nullable = false)
+    private String kId;
+
+    @Column(name = "Dni", nullable = false)
+    private String dNi;
+
+    @Column(name = "DS_NAME", nullable = false)
     private String dsName;
 
-    @Column (name = "DS_LAST_NAME1", nullable = false)
+    @Column(name = "DS_LAST_NAME1", nullable = false)
     private String dsLastName1;
 
-    @Column (name = "DS_LAST_NAME2")
+    @Column(name = "DS_LAST_NAME2")
     private String dsLastName2;
 
     @Column (name = "NUM_PHONE1", nullable = false)
@@ -37,17 +46,26 @@ public class Client {
     @Column (name = "EMAIL", nullable = false)
     private String email;
 
-    @Column (name = "ADRESS", nullable  = false)
+    @Column(name = "ADRESS", nullable = false)
     private String adress;
 
-    @Column (name = "BIRTHDATE")
+    @Column(name = "BIRTHDATE")
     private Date birthDate;
 
-    @Column (name = "SN_ACTIVE", nullable = false)
+    @Column(name = "SN_ACTIVE", nullable = false)
     private String snActive;
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Client client = (Client) o;
+        return id != null && Objects.equals(id, client.id);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
