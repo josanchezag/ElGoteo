@@ -9,8 +9,6 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,15 +16,15 @@ import java.util.Objects;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "Kid", nullable = false)
+    @Column(name = "KID", nullable = false)
     private String kId;
 
-    @Column(name = "Dni", nullable = false)
-    private String dNi;
+    @Column(name = "DNI", nullable = false)
+    private String dni;
 
     @Column(name = "DS_NAME", nullable = false)
     private String dsName;
@@ -38,10 +36,10 @@ public class Client {
     private String dsLastName2;
 
     @Column (name = "NUM_PHONE1", nullable = false)
-    private Integer numPhone1;
+    private Long numPhone1;
 
     @Column (name = "NUM_PHONE")
-    private Integer numPhone2;
+    private Long numPhone2;
 
     @Column (name = "EMAIL", nullable = false)
     private String email;
