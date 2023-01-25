@@ -2,7 +2,7 @@ package com.elgotero.elgotero.controller;
 
 
 import com.elgotero.elgotero.model.Client;
-import com.elgotero.elgotero.repository.ClientRepository;
+import com.elgotero.elgotero.repository.IClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/Clients")
 public class ClientRestController {
     @Autowired
-    ClientRepository repo;
+    IClientRepository repo;
 
 
     @GetMapping

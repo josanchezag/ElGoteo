@@ -11,14 +11,17 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "TEG_USERS")
-public class User {
+public class Userg {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    private Long id;
+    private Integer id;
 
-    @Column(name = "DNI", nullable = false)
-    private String dni;
+    @Column(name = "USERNAME", nullable = false)
+    private String userName;
+
+    @Column(name = "PASSWORD", nullable = false)
+    private String pass;
 
     @Column(name = "DSCOMPLETENAME", nullable = false)
     private String dsCompleteName;
