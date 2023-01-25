@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Qualifier("client")
-public interface ClientRepository extends JpaRepository<Client, Long> {
+public interface IClientRepository extends JpaRepository<Client, Long> {
 }
