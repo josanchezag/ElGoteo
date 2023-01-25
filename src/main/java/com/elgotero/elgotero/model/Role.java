@@ -18,6 +18,7 @@ public class Role {
     @Column(name = "ID", nullable = false)
     private Integer id;
 
+
     @Column(name = "DSDESCRIPTION", nullable = false)
     private String dsDescription;
 
