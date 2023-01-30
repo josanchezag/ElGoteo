@@ -1,19 +1,20 @@
 package com.elgotero.elgotero.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "TEG_ROLE")
-public class Role {
+@Table(name = "TEG_RISK")
+public class Risk {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
-
 
     @Column(name = "DS_DESCRIPTION", nullable = false)
     private String dsDescription;

@@ -9,15 +9,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import java.util.*;
 
 public class TokenUtils {
-    private final static String ACCES_TOKEN_SECRET="NlnAeJ1xiatq/ELoYyFXYaewbhwZgpngtMhfTuhDOjF9F3PIKri2pLUXewEece9a";
-    private final static Long ACCES_TOKEN_VALIDITY_SECONDS=360000000l;
+    private final static String ACCES_TOKEN_SECRET = "NlnAeJ1xiatq/ELoYyFXYaewbhwZgpngtMhfTuhDOjF9F3PIKri2pLUXewEece9a";
+    private final static Long ACCES_TOKEN_VALIDITY_SECONDS = 3600000000L;
 
-    public static String createToken(String name, String email){
-        long expirationTime=ACCES_TOKEN_VALIDITY_SECONDS*1000;
-        Date expirationDate= new Date(System.currentTimeMillis()*expirationTime);
+    public static String createToken(String name, String email) {
+        long expirationTime = ACCES_TOKEN_VALIDITY_SECONDS * 1000;
+        Date expirationDate = new Date(System.currentTimeMillis() * expirationTime);
 
-        Map<String, Object> extra=new HashMap<>();
-        extra.put("name",name);
+        Map<String, Object> extra = new HashMap<>();
+        extra.put("name", name);
 
         return Jwts.builder()
                 .setSubject(email)

@@ -7,8 +7,7 @@ import org.hibernate.Hibernate;
 import java.util.Date;
 import java.util.Objects;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -16,12 +15,12 @@ import java.util.Objects;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "KID", nullable = false)
-    private String kId;
+    private String kdni;
 
     @Column(name = "DNI", nullable = false)
     private String dni;
