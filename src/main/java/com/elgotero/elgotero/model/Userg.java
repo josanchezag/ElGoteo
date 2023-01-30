@@ -23,23 +23,23 @@ public class Userg {
     @Column(name = "PASSWORD", nullable = false)
     private String pass;
 
-    @Column(name = "DSCOMPLETENAME", nullable = false)
+    @Column(name = "DS_COMPLETENAME", nullable = false)
     private String dsCompleteName;
 
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @Column(name = "DATESINGUP", nullable = false)
+    @Column(name = "DATE_SING_UP", nullable = false)
     private Date dateSingUp;
 
-    @Column(name = "DATESINGDOWN" )
+    @Column(name = "DATE_SING_DOWN")
     private Date dateSignDown;
 
-    @Column(name = "SNACTIVE", nullable = false)
+    @Column(name = "SN_ACTIVE", nullable = false)
     private String snActive;
 
     @ManyToOne
-    @JoinColumn(name = "IDROLE", nullable = false)
+    @JoinColumn(name = "ID_ROLE", nullable = false)
     private Role role;
 
 

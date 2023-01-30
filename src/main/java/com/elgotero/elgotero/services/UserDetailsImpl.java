@@ -1,11 +1,7 @@
 package com.elgotero.elgotero.services;
 
-import com.elgotero.elgotero.model.Role;
 import com.elgotero.elgotero.model.Userg;
-import com.elgotero.elgotero.repository.IRole;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,12 +27,12 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userg.getEmail();
+        return userg.getUserName();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return Objects.isNull(userg.getDateSignDown())? true: userg.getDateSignDown().before(new Date(System.currentTimeMillis()));
+        return Objects.isNull(userg.getDateSignDown()) || userg.getDateSignDown().after(new Date(System.currentTimeMillis()));
     }
 /**
  * TODO: Method pending to develop

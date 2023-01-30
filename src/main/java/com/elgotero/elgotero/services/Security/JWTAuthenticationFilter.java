@@ -1,6 +1,7 @@
 package com.elgotero.elgotero.services.Security;
 
 import com.elgotero.elgotero.services.UserDetailsImpl;
+import com.elgotero.elgotero.util.Encrypt;
 import com.elgotero.elgotero.util.TokenUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
@@ -20,19 +21,19 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) throws AuthenticationException {
-        AuthCredentials authCredentials=new AuthCredentials();
+        AuthCredentials authCredentials;
+        UsernamePasswordAuthenticationToken usernamePAT = null;
 
-        try{
-            authCredentials=new ObjectMapper().readValue(request.getReader(),AuthCredentials.class);
-        }catch (IOException e)
-        {
+        try {
+            authCredentials = new ObjectMapper().readValue(request.getReader(), AuthCredentials.class);
+            usernamePAT = new UsernamePasswordAuthenticationToken(
+                    authCredentials.getUserName(),
+                    Encrypt.decrypt(authCredentials.getPassword()),
+                    Collections.emptyList()
+            );
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        UsernamePasswordAuthenticationToken usernamePAT=new UsernamePasswordAuthenticationToken(
-                authCredentials.getUserName(),
-                authCredentials.getPassword(),
-                Collections.emptyList()
-        );
 
         return getAuthenticationManager().authenticate(usernamePAT);
     }

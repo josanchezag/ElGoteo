@@ -31,7 +31,7 @@ public class ClientRestController {
     }
 
     @DeleteMapping()
-    public void deleteClientbyId(@RequestParam(value = "id", required = false) Long id) {
+    public void deleteClientbyId(@RequestParam(value = "id", required = false) Integer id) {
         repo.deleteById(id);
     }
 }
