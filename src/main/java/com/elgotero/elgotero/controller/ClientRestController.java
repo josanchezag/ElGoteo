@@ -26,7 +26,12 @@ public class ClientRestController {
     }
 
     @PutMapping
-    public Client modifyClient(@RequestBody Client p) {
+    public Client modifyClient(@RequestBody Client p
+            , @RequestParam(value = "kdni", required = false) String kdni
+            , @RequestParam(value = "dni", required = false) String dni) throws Exception {
+        if (repo.findByKdniAndDni(kdni, dni).get().getDni().isEmpty()) {
+            throw new Exception("Client doesn't find");
+        }
         return repo.save(p);
     }
 
