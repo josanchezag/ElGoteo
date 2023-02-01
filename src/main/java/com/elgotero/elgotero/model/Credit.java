@@ -1,5 +1,6 @@
 package com.elgotero.elgotero.model;
 
+import com.elgotero.elgotero.constants.PaymentPeriod;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,13 +30,22 @@ public class Credit {
     private Long vlrCurrent;
 
     @Column(name = "VLR_INTEREST_RATE", nullable = false)
-    private Long vlrInterstRate;
+    private Long vlrInterestRate;
+
+    @Column(name = "NUM_INSTALLMENT", nullable = false)
+    private PaymentPeriod numinstallment;
+
+    @Column(name = "PAYMENT_PERIOD", nullable = false)
+    private Integer paymentPeriod;
 
     @Column(name = "DATE_OPEN", nullable = false)
     private Date dateOpen;
 
     @Column(name = "DATE_END", nullable = false)
     private Date dateEnd;
+
+    @Column(name = "DAYS_PAST_DUE")
+    private Integer dayPastDue;
 
     @Column(name = "SN_STATUS", nullable = false)
     private String snStatus;
