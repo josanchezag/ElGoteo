@@ -4,6 +4,7 @@ package com.elgotero.elgotero.controller;
 import com.elgotero.elgotero.model.Client;
 import com.elgotero.elgotero.repository.IClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ClientRestController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Client insertClient(@RequestBody Client p) {
         return repo.save(p);
     }
