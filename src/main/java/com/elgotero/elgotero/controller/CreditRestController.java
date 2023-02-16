@@ -14,6 +14,7 @@ public class CreditRestController {
     @Autowired
     ICreditRepository repo;
 
+
     @GetMapping
     public List<Credit> getAll() {
         return repo.findAll();

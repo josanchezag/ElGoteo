@@ -47,8 +47,8 @@ public class Credit {
     @Column(name = "DAYS_PAST_DUE")
     private Integer dayPastDue;
 
-    @Column(name = "SN_STATUS", nullable = false)
-    private String snStatus;
+    @Column(name = "DS_STATUS", nullable = false)
+    private String CreditStatus;
 
     @Column(name = "SN_ACTIVATE", nullable = false)
     private String snActivate;
