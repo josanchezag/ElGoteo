@@ -31,24 +31,10 @@ public class ClientRestController {
     public Client modifyClient(@RequestBody Client p
             , @RequestParam(value = "kdni", required = false) String kdni
             , @RequestParam(value = "dni", required = false) String dni) throws Exception {
-        Client client=repo.findByKdniAndDni(kdni, dni).get();
-        if (client.getDni().isEmpty()) {
+        if (repo.findByKdniAndDni(kdni, dni).get().getDni().isEmpty()) {
             throw new Exception("Client doesn't find");
         }
-        return repo.save(new Client(
-                client.getId(),
-                kdni,
-                dni,
-                p.getDsName(),
-                p.getDsLastName1(),
-                p.getDsLastName2(),
-                p.getNumPhone1(),
-                p.getNumPhone2(),
-                p.getEmail(),
-                p.getAdress(),
-                p.getBirthDate(),
-                p.getSnActive()
-        ));
+        return repo.save(p);
     }
 
     @DeleteMapping()
